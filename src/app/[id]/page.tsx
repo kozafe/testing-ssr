@@ -64,7 +64,14 @@ interface Post {
 const Something = async (props: Page) => {
   const { id } = props.params;
   const { data }: { data: Post } = await axios.get(
-    `https://www.transfez.id/wp-json/wp/v2/posts/${id}`
+    `https://www.transfez.id/wp-json/wp/v2/posts/${id}`,
+    {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        Referer: "https://www.transfez.id/",
+      },
+    }
   );
 
   const { content, title } = data;
