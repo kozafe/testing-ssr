@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 
 interface Props {
   title: string;
@@ -20,10 +21,10 @@ const Something = async (props: Page) => {
 
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] gap-[12px]">
-      <img src={image} style={{ width: 200 }} />
+      <Image src={image} height={300} width={300} alt="something" />
       <h1>{title}</h1>
       <p>{description}</p>
-      <p className="text-[black] bg-[white]">{ingredients}</p>
+      <p className="text-[black] bg-[white]">{ingredients.join(", ")}</p>
     </div>
   );
 };
