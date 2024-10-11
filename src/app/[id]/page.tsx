@@ -1,13 +1,5 @@
 import axios from "axios";
-import Image from "next/image";
 
-interface Props {
-  title: string;
-  description: string;
-  ingredients: string[];
-  image: string;
-  id: number;
-}
 interface Page {
   params: { id: string };
 }
@@ -54,7 +46,6 @@ interface Post {
   translations: {
     id: number;
   };
-  pll_sync_post: any[];
   _links: {
     self: Array<{ href: string }>;
     collection: Array<{ href: string }>;
@@ -76,7 +67,7 @@ const Something = async (props: Page) => {
     `https://www.transfez.id/wp-json/wp/v2/posts/${id}`
   );
 
-  const { content, title, date } = data;
+  const { content, title } = data;
 
   return (
     <div className="flex flex-col gap-[20px]">
